@@ -19,12 +19,18 @@ Intro add
    :widths: auto
    :delim: ;
 
+   20 min ; :doc:`target`
    20 min ; :doc:`filename`
-
 
 .. toctree::
    :maxdepth: 1
    :caption: The lesson
+
+   motivation
+   target
+   continuous-integration
+   test-design
+   conclusions
 
 
 .. toctree::
@@ -33,7 +39,7 @@ Intro add
 
    quick-reference
    guide
-   target
+
 
 
 .. _learner-personas:

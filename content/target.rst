@@ -18,30 +18,6 @@ offloading to GPU
 
 
 
-.. csv-table::
-   :widths: auto
-   :delim: ;
-
-   10 min ; :doc:`motivation`
-   10 min ; :doc:`concepts`
-   25 min ; :doc:`pytest`
-   40 min ; :doc:`continuous-integration`
-   55 min ; :doc:`test-design`
-   5 min ; :doc:`conclusions`
-
-
-.. toctree::
-   :maxdepth: 1
-   :caption: The lesson
-
-   motivation
-   concepts
-   pytest
-   continuous-integration
-   test-design
-   conclusions
-
-
 host-device model
 ------------------
 Since version 4.0 , OpenMP supports heterogeneous systems
