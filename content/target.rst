@@ -10,6 +10,38 @@ offloading to GPU
    - Learn how to create memory windows.
    - Learn how to access remote memory windows.
 
+.. prereq::
+
+   1. You need `pytest <http://doc.pytest.org>`__ (as part of Anaconda or Miniconda or Virtual Environment).
+   2. Basic understanding of Git.
+   3. You need a `GitHub <https://github.com>`__ or a `Gitlab <https://gitlab.com/>`__ account.
+
+
+
+.. csv-table::
+   :widths: auto
+   :delim: ;
+
+   10 min ; :doc:`motivation`
+   10 min ; :doc:`concepts`
+   25 min ; :doc:`pytest`
+   40 min ; :doc:`continuous-integration`
+   55 min ; :doc:`test-design`
+   5 min ; :doc:`conclusions`
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: The lesson
+
+   motivation
+   concepts
+   pytest
+   continuous-integration
+   test-design
+   conclusions
+
+
 host-device model
 ------------------
 Since version 4.0 , OpenMP supports heterogeneous systems
@@ -89,16 +121,98 @@ target region on the device.
 
 
 
+
+``````{challenge} 1. Function that receives a number and returns a number
+````{tabs}
+   ```{code-tab} py
+   def factorial(n):
+       """
+       Computes the factorial of n.
+       """
+       if n < 0:
+           raise ValueError('received negative input')
+       result = 1
+       for i in range(1, n + 1):
+           result *= i
+       return result
+   ```
+
+   ```{code-tab} c++
+   /* Computes the factorial of n recursively. */
+   constexpr unsigned int factorial(unsigned int n) {
+      return (n <= 1) ? 1 : (n * factorial(n - 1));
+   }
+   ```
+
+   ```{code-tab} r R
+   #' Computes the factorial of n
+   #'
+   #' @param n The number to compute the factorial of.
+   #' @return The factorial of n
+   factorial <- function(n) {
+     if (n < 0)
+       stop('received negative input')
+     if (n == 0)
+       return(1)
+
+     result <- 1
+     for (i in 1:n)
+       result <- result * i
+     result
+   }
+   ```
+
+   ```{code-tab} julia
+   """
+       factorial(n::Int)
+
+   Compute the factorial of n.
+   """
+   function factorial(n::Int)
+       if n < 0
+           throw(DomainError("n must be non-negative"))
+       end
+       result = 1
+       for i in 1:n
+           result *= i
+       end
+       return result
+   end
+   ```
+
+   ```{code-tab} fortran
+   module factorial_mod
+   contains
+      ! computes the factorial of n
+      integer function factorial(n)
+         implicit none
+         integer, intent(in) :: n
+         integer r
+         integer i
+         if(n < 0) then
+            write(*,*) 'Received negative input'
+            stop
+         end if
+         r = 1
+         do i = 1,n
+            r = r*i
+         end do
+         factorial=r
+      end function factorial
+   end module factorial_mod
+   ```
+````
+
+
+
+
+
 Creating Parallelism on the Target Device
 ------------------
-The target construct transfers the control flow to the target device
-▪ Transfer of control is sequential and synchronous
-
 OpenMP separates offload and parallelism
-▪Programmers need to explicitly create parallel regions on the target device
-In theory, this can be combined with any OpenMP construct
-▪
-In practice, there is only a useful subset of OpenMP features for a target device such 
+ -The target construct transfers the control flow to the device in a sequential and synchronous manner
+ -Programmers need to explicitly create parallel regions on the target device
+ -In practice, there is only a useful subset of OpenMP features for a target device such 
 as a GPU, e.g., no I/O, limited use of base language features.
 
 
