@@ -39,6 +39,8 @@ The host is where the  thread begins execution
 Can have a single host and one or more target devices 
 Host and Device have separate data environment (except with managed memory or unified shared memory).
 
+execution model
+------------------
 The execution model is host-centric
 Host creates/destroys data environment on the device(s)
 Host maps data to the device data environment.
@@ -55,8 +57,8 @@ After execution, the host updates the data between the host and the device, whic
 The host then destroys the data environment on the device.
 
 
-
 Creating Parallelism on the Target Device
+------------------
 The target construct transfers the control flow to the target device
 ▪ Transfer of control is sequential and synchronous
 
@@ -122,3 +124,18 @@ the communicator will reserve the specified memory for remote memory accesses.
                            MPI_Comm comm,
                            void *baseptr,
                            MPI_Win *win)
+
+.. note::
+
+   - The memory window is usually a single array: the size of the window object
+     then coincides with the size of the array.  If the base type of the array
+     is a simple type, then the displacement unit is the size of that type,
+     *e.g.* ``double`` and ``sizeof(double)``.  You should use a displacement
+     unit of 1 otherwise.
+
+
+.. challenge:: Window creation
+
+   Let's look again at the initial example in the type-along. There we published
+   an already allocated buffer as memory window. Use the examples above to
+   figure out how to switch to using |term-MPI_Win_allocate|
