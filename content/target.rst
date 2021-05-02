@@ -100,60 +100,12 @@ target region on the device.
 
 ``````{challenge} 1. Function that receives a number and returns a number
 ````{tabs}
-   ```{code-tab} py
-   def factorial(n):
-       """
-       Computes the factorial of n.
-       """
-       if n < 0:
-           raise ValueError('received negative input')
-       result = 1
-       for i in range(1, n + 1):
-           result *= i
-       return result
-   ```
 
    ```{code-tab} c++
    /* Computes the factorial of n recursively. */
    constexpr unsigned int factorial(unsigned int n) {
       return (n <= 1) ? 1 : (n * factorial(n - 1));
    }
-   ```
-
-   ```{code-tab} r R
-   #' Computes the factorial of n
-   #'
-   #' @param n The number to compute the factorial of.
-   #' @return The factorial of n
-   factorial <- function(n) {
-     if (n < 0)
-       stop('received negative input')
-     if (n == 0)
-       return(1)
-
-     result <- 1
-     for (i in 1:n)
-       result <- result * i
-     result
-   }
-   ```
-
-   ```{code-tab} julia
-   """
-       factorial(n::Int)
-
-   Compute the factorial of n.
-   """
-   function factorial(n::Int)
-       if n < 0
-           throw(DomainError("n must be non-negative"))
-       end
-       result = 1
-       for i in 1:n
-           result *= i
-       end
-       return result
-   end
    ```
 
    ```{code-tab} fortran
