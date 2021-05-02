@@ -14,6 +14,7 @@ target
 ------------------
 Since version 4.0 , OpenMP supports heterogeneous systems
 OpenMP uses ''target construct'' to offload execution from the host to the target device(s), and hence the directive name.
+In addition, the associated data needs to be transferred to the device(s) as well and this will be the topic of the next chapter. The target device owns the data, so accesses by the CPU during the execution of the target region is forbidden.
 
 Such a host/device model is generally used by OpenMP for target:
 - Normally there is only one single host: CPU
@@ -103,3 +104,21 @@ Unstructured
 Can have multiple start and end points
 Can branch across multiple functions
 Memory exists until explicitly deallocated
+
+
+
+The creation of ``MPI_Win`` objects is a collective operation: each process in
+the communicator will reserve the specified memory for remote memory accesses.
+
+.. signature:: |term-MPI_Win_allocate|
+
+   Use this function to *allocate* memory and *create* a window object out of it.
+
+   .. code-block:: c
+
+      int MPI_Win_allocate(MPI_Aint size,
+                           int disp_unit,
+                           MPI_Info info,
+                           MPI_Comm comm,
+                           void *baseptr,
+                           MPI_Win *win)
