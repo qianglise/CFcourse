@@ -98,7 +98,7 @@ target region on the device.
 
 
 
-``````{challenge} 1. Function that receives a number and returns a number
+`````{challenge} 1. Function that receives a number and returns a number
 ````{tabs}
 
    ```{code-tab} c++
@@ -130,7 +130,7 @@ target region on the device.
    end module factorial_mod
    ```
 ````
-``````
+`````
 
 
 
