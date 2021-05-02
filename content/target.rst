@@ -65,6 +65,8 @@ To execute code on a target device
  ``target``
  ``declear target``
 Syntax
+    - C/C++: `#pragma target [clauses]`
+    - Fortran: `!$OMP target [clauses]`
 Commonly used clauses 
 #pragma omp target [clause[[,]clause]...]
 structured-block
