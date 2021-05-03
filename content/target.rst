@@ -24,10 +24,8 @@ Since version 4.0 , OpenMP supports heterogeneous systems. OpenMP uses target  c
 
 
 A host/device model is generally used by OpenMP for offloading:
- - Normally there is only one single host: CPU
-
- - but one or multiple target devices of the same kind: CPU, GPU, FPGA, ...
-
+ - Normally there is only one single host: e.g. CPU
+ - but one or multiple target devices of the same kind: e.g. CPU, GPU, FPGA, ...
  - unless with unified shared memory, the host and device have separate memory address spac
 
 
