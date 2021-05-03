@@ -1,3 +1,6 @@
+data environment
+===================================
+
 .. objectives::
 
    - Understand what are data movement
@@ -13,10 +16,6 @@
 # data environment
 
 ## data mapping
-
-# data environment
-===================================
-
 
 data mapping
 ------------------
