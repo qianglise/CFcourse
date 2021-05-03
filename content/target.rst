@@ -13,10 +13,10 @@ offloading to GPU
    3. You need a 
 
 
-
+.. _host_device_model:
 host-device model
 ------------------
-Since version 4.0 , OpenMP supports heterogeneous systems. OpenMP uses target  construct to offload execution from the host to the target device(s), and hence the directive name.In addition, the associated data needs to be transferred to the device(s) as well.  By default all variables within the lexical scope of the construct are copied to and from the device and this will be discussed more in the next chapter. Once transferred, the target device owns the data and  accesses by the host during the execution of the target region is forbidden.
+Since version 4.0 , OpenMP supports heterogeneous systems. OpenMP uses target  construct to offload execution from the host to the target device(s), and hence the directive name. In addition, the associated data needs to be transferred to the device(s) as well.  By default all variables within the lexical scope of the construct are copied to and from the device and this will be discussed more in the next chapter. Once transferred, the target device owns the data and  accesses by the host during the execution of the target region is forbidden.
 
 .. note::
   1. device is host
@@ -24,9 +24,10 @@ Since version 4.0 , OpenMP supports heterogeneous systems. OpenMP uses target  c
 
 
 Such a host/device model is generally used by OpenMP for offloading:
- - Normally there is only one single host: CPU
- - but one or multiple target devices of the same kind: CPU, GPU, FPGA, ...
- - unless with unified shared memory, the host and device have separate memory address space
+
+- Normally there is only one single host: CPU
+- but one or multiple target devices of the same kind: CPU, GPU, FPGA, ...
+- unless with unified shared memory, the host and device have separate memory address space
 
 
 
