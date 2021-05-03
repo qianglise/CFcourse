@@ -20,7 +20,7 @@ Intro add
    :delim: ;
 
    20 min ; :doc:`target`
-   20 min ; :doc:`filename`
+   20 min ; :doc:`data`
 
 .. toctree::
    :maxdepth: 1

@@ -72,7 +72,9 @@ The target construct is used to transfer
 To execute code on a target device
  ``target``
  ``declear target``
+
 Syntax
+The ``declear target`` directive specifies that variables, functions (C, C++ and Fortran), and subroutines (Fortran) are mapped to a device. The syntax  is as follows:  
     - C/C++: `#pragma target [clauses]`
     - Fortran: `!$OMP target [clauses]`
 Commonly used clauses 
