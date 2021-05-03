@@ -42,6 +42,7 @@ A host/device model is generally used by OpenMP for offloading:
 The host is where the  thread begins execution
 
 
+.. _device_execution_model:
 device execution model
 ------------------
 The execution model is host-centric and
