@@ -53,10 +53,25 @@ The execution on the device is host-centric and
 
 Target construct
 ------------------
-The target construct is used to transfer
- - the control flow  from the host to the device
- - data between the host and device ``DEVICE`` 
- - data between ``HOST``  and  ``DEVICE`` 
+The target construct consists of a target directive and an execution region. It is used to transfer both the control flow  from the host to the device and the data between the host and device.
+
+Syntax
+ - (C/C++)
+#pragma omp target [clause[[,] clause],...]
+structured-block
+ - (Fortran)
+!$omp target [clause[[,] clause],...]
+structured-block
+!$omp end target
+ - Clauses
+  -- device(scalar-integer-expression)
+  -- map([{alloc | to | from | tofrom}:] list)
+  -- if(scalar-expr)
+
+
+Target construct Code Example
+https://github.com/OpenMP/Examples/blob/v4.5.0/sources/Example_target.1.c
+https://github.com/OpenMP/Examples/blob/v4.5.0/sources/Example_target.1.f90
 
 To execute code on a target device
  ``target``
