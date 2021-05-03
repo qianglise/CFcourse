@@ -63,14 +63,17 @@ Target construct
 The target construct consists of a target directive and an execution region. It is used to transfer both the control flow  from the host to the device and the data between the host and device.
 
 Syntax
- - (C/C++)
+ - (C/C++)::
 
-#pragma omp target [clause[[,] clause],...]
+#pragma omp target [clauses]
 structured-block
- - (Fortran)
-!$omp target [clause[[,] clause],...]
+
+ - Fortran::
+
+!$omp target [clauses]
 structured-block
 !$omp end target
+
  - Clauses
   -- device(scalar-integer-expression)
   -- map([{alloc | to | from | tofrom}:] list)
