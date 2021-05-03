@@ -51,8 +51,8 @@ region, device to host copy at end).
    :widths: auto
    :delim: ;
 
-   10 min ; :doc:`motivation`
-   10 min ; :doc:`concepts`
+   10 min ; aaa
+   10 min ; bbb
 
 
 
