@@ -32,13 +32,9 @@ explicit data movement
 explicit data movement is controled by the map clause
 Data allocated on the heap needs to be explicitly copied to/from the device:
 the various forms of the map cluase are
- – map(to:list): On entering the region, variables in the list are initialized on the device using the
-original values from the host (host to device copy).
- – map(from:list): At the end of the target region, the values from variables in the list are copied
-into the original variables on the host (device to host copy). On entering the region, the initial
-value of the variables on the device is not initialized.
- – map(tofrom:list): the effect of both a map-to and a map-from (host to device copy at start of
-region, device to host copy at end).
+ – map(to:list): On entering the region, variables in the list are initialized on the device using the original values from the host (host to device copy).
+ – map(from:list): At the end of the target region, the values from variables in the list are copied into the original variables on the host (device to host copy). On entering the region, the initial value of the variables on the device is not initialized.
+ – map(tofrom:list): the effect of both a map-to and a map-from (host to device copy at start of region, device to host copy at end).
  – map(alloc:list): On entering the region, data is allocated and uninitialized on the device.
  – map(list): equivalent to map(tofrom:list).
 
