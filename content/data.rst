@@ -26,7 +26,8 @@ data mapping
 The map cluase on a device construct explicitly specifies how items  are mapped from the host to the device data environment.  The common mapped items consist of  arrays(array sections), scalars, pointers, and structure elements.
 Note that a C/C++ pointer is mapped as a zero-length array section. OpenMP uses a combination of implicit and explicit data mapping.
 
-implicit data movement within a target region
+implicit data movement 
+within a target region
  - scalar variables are implicitly mapped as firstprivate and not copied back to the host at the end of the target region
  - non-scalar/non-pointer variables which have a complete type are copied to the device at the start of the target region, and copied back at the end, the so-called  mapped with a map-type of tofrom
  - Pointers are implicitly copied, but not the data they point to.
@@ -44,6 +45,21 @@ value of the variables on the device is not initialized.
 region, device to host copy at end).
  – map(alloc:list): On entering the region, data is allocated and uninitialized on the device.
  – map(list): equivalent to map(tofrom:list).
+
+| Arithmetic Operator | Initial value |
+|---------------------|---------------|
+| map(to:list)                 |  On entering the region, variables in the list are initialized on the device using the
+original values from the host (host to device copy)           |
+| map(from:list)                 |   At the end of the target region, the values from variables in the list are copied
+into the original variables on the host (device to host copy). On entering the region, the initial
+value of the variables on the device is not initialized.         |
+| map(tofrom:list)                 |    the effect of both a map-to and a map-from (host to device copy at start of
+region, device to host copy at end).        |
+| map(alloc:list)               |       On entering the region, data is allocated and uninitialized on the device.   |
+| map(list)               |  equivalent to map(tofrom:list)      |
+
+
+
 
 
 data shaping
